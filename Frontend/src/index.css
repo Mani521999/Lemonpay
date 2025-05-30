@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+   --fontfamily:"Montserrat", sans-serif;
+   --white: #fff;
+   --black: #000;
+   --themetxt: rgb(238, 255, 0); 
+   --logbtn: #fff;
+   --btnclr: rgb(6, 6, 209);
+   --inputclr: #9ea5db;
+
+   --admintitle: #1260d3;
+}
+
+body{
+  margin: 0;
+  font-family: var(--fontfamily) !important;
+}
+.container{
+  max-width: 90% !important;
+}
+.logo{
+  max-width: 250px;
+  width: 100%;
+}
+.lemonpay_back{
+   /* background: url("./assets/lemonpayback.jpg") no-repeat; */
+   background: linear-gradient(151.08deg, #FFFFFF 20.71%, #183BA3 66.01%);
+background-blend-mode: lighten;
+   background-size: cover;
+   width: 100%;
+   height: 100vh;
+   /* overflow: hidden; */
+}
+.themetxt {
+  color: var(--themetxt);
+}
+.lemonpay_back .form-label{
+  color: var(--white);
+}
+.lemonpay_back .form-control{
+  background: var(--inputclr) !important;
+  border-color: var(--inputclr) !important;
+}
+.lemonpay_back input::placeholder{
+  color: var(--white) !important;
+}
+.logbtn{
+  background: var(--logbtn);
+  border-color: var(--logbtn);
+  border-radius: 8px;
+  padding: 6px 6px;
+  font-weight: 500;
+}
+.lemonpay_back label{
+  color: var(--white);
+}
+.sign{
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+.admin_back{
+  background: var(--white);
+}
+.admin_back {
+  position: relative;
+  z-index: 0;
+}
+.maintitle, .rdt_TableHeadRow {
+  color: var(--admintitle);
+}
+.rdt_TableHeadRow{
+  font-size: 16px;
+  font-weight: 600;
+}
+.rdt_TableBody .rdt_TableRow {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-color: #fff !important;
+  border-left: 2px solid #e8e8e8;
+  border-bottom: 1px solid #c4c2c2 !important;
+  border-right: 1px solid #e8e8e8 !important;
+}
+.rdt_TableCell{
+  font-weight: 600;
+}
+
+.taskbtn{
+  background: var(--admintitle);
+  border:1px solid var(--admintitle);
+  color: var(--white);
+  border-radius: 25px;
+  padding: 10px 26px;
+  font-weight: 500;
+}
+.taskbtn:hover{
+  background: transparent;
+  border:1px solid var(--admintitle);
+  color: var(--admintitle);
+}
+.rdt_Pagination{
+  justify-content: center !important;
+  margin-top: 3%;
+  border-top-color: rgb(0 0 0 / 0%) !important;
+}
+.rdt_TableRow {
+  overflow: visible !important;
+  /* z-index: 1; */
+}
+.rdt_TableCell {
+  overflow: visible !important;
+}
+.dropdown-toggle::after{
+  display: none !important;
+}
+.dropdown-toggle{
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+.close{
+  background: var(--admintitle);
+  color: var(--white);
+    font-size: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    cursor: pointer;
+}
+.modal .form-control{
+  background-color: #f1f1f1 !important;
+  border-color: #f1f1f1 !important;
+  border-radius: 6px;
+  /* height: 42px; */
+}
+.taskinput{
+  height: 46px;
+}
+.react-datepicker-wrapper , .react-datepicker-wrapper input{
+  width: 100%;
+}
+.react-datepicker-wrapper input{
+  background-color: #f1f1f1 !important;
+  border: 1px solid #f1f1f1 !important;
+  border-radius: 6px;
+  padding: 6px 10px;
+  height: 46px;
+}
+.cancelbtn{
+  background: transparent;
+  border:1px solid transparent;
+  color: var(--black);
+  border-radius: 25px;
+  padding: 10px 26px;
+  font-weight: 500;
+}
+.modal-body{
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+
+
+
+@media screen and (max-width:575px) {
+  div[data-column-id="1"],  .rdt_TableHeadRow{
+    display: none !important;
+  }
+  .custom-datatable .rdt_Table {
+    display: block !important;
+  }
+  
+  .custom-datatable .rdt_TableRow {
+    display: block !important; 
+    border-top: 2px solid #e8e8e8;
+    margin-bottom: 8px;
+    padding: 10px 0px;
+    /* flex-wrap: wrap; */
+  }
+  .rdt_TableCell{
+    margin-bottom: 10px;
+  }
+  div[data-column-id="4"] div:first-child{
+    white-space: unset !important;
+  }
+  div[data-column-id="3"]{
+    font-weight: 600;
+    font-size: 16px;
+  }
+  div[data-column-id="5"] div:first-child{
+    position: absolute;
+    top: -54px;
+    right: 0;
+    justify-content: end;
+  }
+}

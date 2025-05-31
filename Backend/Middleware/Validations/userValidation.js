@@ -31,13 +31,13 @@ export const registerValidation = async (req, res, next) => {
         .required()
         .valid(Joi.ref("password"))
         .messages({
-          "any.only": "Confirm password must match password",
           "string.empty": "Confirm password is required",
+          "any.only": "Confirm password must match password"
         }),
     }).unknown(true);
 
     const { error, value } = schema.validate(req.body, { abortEarly: false });
-    console.log("errorerror:", JSON.stringify(error, null, 2), value);
+    // console.log("errorerror:", JSON.stringify(error, null, 2), value);
 
     if (error) {
       const errors = {};

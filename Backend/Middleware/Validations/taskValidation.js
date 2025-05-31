@@ -48,7 +48,7 @@ export const taskValidation = async (req, res, next) => {
 export const editTaskValidation = async (req, res, next) => {
   try {
     let schema = Joi.object({
-      id: Joi.string().required().messages({
+      _id: Joi.string().required().messages({
         "string.empty": "ID is required",
         "any.required": "ID is required",
       }),
@@ -96,14 +96,14 @@ export const editTaskValidation = async (req, res, next) => {
 export const deleteTaskValidation = async (req, res, next) => {
   try {
     let schema = Joi.object({
-      id: Joi.string().required().messages({
+      _id: Joi.string().required().messages({
         "string.empty": "ID is required",
         "any.required": "ID is required",
       }),
     }).unknown(true);
 
     const { error, value } = schema.validate(req.query, { abortEarly: false });
-    console.log("errorerror:", JSON.stringify(error, null, 2), value);
+    console.log("errorerror:",req.query, JSON.stringify(error, null, 2), value);
 
     if (error) {
       const errors = {};

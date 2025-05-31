@@ -46,9 +46,9 @@ export const createTask = async (req, res) => {
  */
 export const editTask = async (req, res) => {
   try {
-    const { taskName, description, dueDate, id } = req.body;
+    const { taskName, description, dueDate, _id } = req.body;
 
-    const task = await TaskTable.findOne({ _id: id });
+    const task = await TaskTable.findOne({ _id: _id });
     if (!isEmpty(task)) {
       task.taskName = taskName;
       task.description = description;
@@ -79,7 +79,7 @@ export const editTask = async (req, res) => {
 /**
  * Method : GET
  * URL : /getAllTask
- * @param {taskName, description, dueDate, id} req
+ * @param {*} req
  * @param {*} res
  */
 export const getAllTask = async (req, res) => {
@@ -115,7 +115,7 @@ export const getAllTask = async (req, res) => {
  */
 export const deleteTask = async (req, res) => {
   try {
-    const data = await TaskTable.deleteOne({ _id: req.query.id });
+    const data = await TaskTable.deleteOne({ _id: req.query._id });
     return sendResponse(res, {
       success: true,
       message: "Task deleted successfully",

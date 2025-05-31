@@ -28,6 +28,6 @@ router
   .get(verifyToken, TaskController.getAllTask);
 router
   .route("/deleteTask")
-  .post(verifyToken, deleteTaskValidation, TaskController.deleteTask);
+  .get(verifyToken, deleteTaskValidation, TaskController.deleteTask);
 
 module.exports = router;

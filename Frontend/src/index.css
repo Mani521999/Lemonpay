@@ -166,7 +166,13 @@ background-blend-mode: lighten;
 }
 
 
+.rdt_TableCell {
+  overflow: visible !important;
+}
 
+.dropdown-menu {
+  z-index: 9999 !important;
+}
 
 @media screen and (max-width:575px) {
   div[data-column-id="1"],  .rdt_TableHeadRow{
@@ -181,7 +187,7 @@ background-blend-mode: lighten;
     border-top: 2px solid #e8e8e8;
     margin-bottom: 8px;
     padding: 10px 0px;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
   }
   .rdt_TableCell{
     margin-bottom: 10px;

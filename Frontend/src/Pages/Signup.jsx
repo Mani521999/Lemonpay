@@ -81,8 +81,8 @@ function Signup() {
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Confirm Password</Form.Label>
                 <Form.Control
-                  type="Confirm password"
-                  placeholder="Password"
+                  type="password"
+                  placeholder="Confirm Password"
                   name="confirmPassword"
                   onChange={(e) => handleChnager(e)}
                 />

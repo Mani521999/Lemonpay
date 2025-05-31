@@ -82,10 +82,10 @@ function Signin() {
               </Form.Group>
 
               <Form.Group
-                className="mb-3 d-flex justify-content-between"
+                className="mb-3 d-flex justify-content-end"
                 controlId="formBasicCheckbox"
               >
-                <Form.Check type="checkbox" label="Remember Me" />
+                {/* <Form.Check type="checkbox" label="Remember Me" /> */}
                 <Link to="/signup" className="sign">
                   Sign Up
                 </Link>

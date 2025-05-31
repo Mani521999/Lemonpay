@@ -16,3 +16,8 @@ export const Axios = async (data) => {
     return err.response.data;
   }
 };
+
+export const isAuthenticated = () => {
+  const token = localStorage.getItem("userToken");
+  return !!token;
+};

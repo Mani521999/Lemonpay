@@ -21,3 +21,8 @@ export const isAuthenticated = () => {
   const token = localStorage.getItem("userToken");
   return !!token;
 };
+
+export const setAuthenticated = (token) => {
+  localStorage.setItem("userToken", token);
+  axios.defaults.headers.common["Authorization"] = token;
+};

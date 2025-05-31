@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 import { Container, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { toaster } from "../Library";
-import { Axios } from "../Axios";
+import { Axios, setAuthenticated } from "../Axios";
 
 function Signin() {
   const navigate = useNavigate();
@@ -28,9 +28,9 @@ function Signin() {
     console.log("datadata", data);
 
     if (data.success) {
-      navigate("/task");
       toaster(data.message, "success");
-      localStorage.setItem("userToken",data.token )
+      setAuthenticated(data.token);
+      navigate("/task");
     } else {
       serErrors(data.errors);
     }

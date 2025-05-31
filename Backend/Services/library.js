@@ -12,3 +12,23 @@ export const isEmpty = value =>
 export const sendResponse = (res, data = {}) => {
     res.status(data.statusCode).json(data)
 }
+
+
+/** Create pagination query for all apis  */
+export const paginationQuery = (query = {}) => {
+    try {
+
+        let pagination = { skip: 0, limit: 10, page: 1 }
+
+        if (!isEmpty(query) && !isEmpty(query.page) && !isEmpty(query.limit)) {
+            pagination['skip'] = (query.page - 1) * query.limit;
+            pagination['limit'] = Number(query.limit)
+            pagination['page'] = Number(query.page)
+        }
+
+        return pagination;
+    } catch (e) {
+        console.log("paginationQuery_err", e);
+        return false
+    }
+}

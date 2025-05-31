@@ -14,26 +14,29 @@ const UserSchema = new Schema(
   {
     email: {
       type: String,
-      default: "",
+      required: true,
+      unique: true,
     },
     password: {
       type: String,
-      require: true,
+      required: true
     },
   },
   { timestamps: true }
 );
 
 /** Virtuals */
-UserSchema.virtual("hashes")
-  .set(function (pass) {
-    this._password = pass;
-    this.salt = this.makeSalt();
-    this.password = this.encryptPassword(pass);
-  })
-  .get(function () {
-    return this._password;
-  });
+UserSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+
+  try {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
 
 /** Methods */
 UserSchema.methods = {
@@ -56,9 +59,9 @@ UserSchema.methods = {
    * @api public
    */
   encryptPassword: async function (password) {
-    var saltRounds = 10;
-    return await bcrypt.hash(password, saltRounds);
-  }
+
+    return await bcrypt.hash(password, 10)
+  },
 };
 
 UserSchema.methods.generateJWT = function (payload) {
